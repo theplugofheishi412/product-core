@@ -3,7 +3,7 @@ package sn.isi.l3gl.core.product_core.service;
 import org.springframework.stereotype.Service;
 import sn.isi.l3gl.core.product_core.entity.Product;
 import sn.isi.l3gl.core.product_core.repository.ProductRepository;
-
+import  java.util.List;
 @Service
 public class ProductService {
 
@@ -12,8 +12,18 @@ public class ProductService {
     public ProductService(ProductRepository productRepository){
         this.productRepository = productRepository;
     }
-
+/*
+methode pour creer un products
+ */
     public Product createProduct(Product product){
         return  productRepository.save(product);
     }
+
+    /*
+    Methode rechercher un produit
+     */
+    public List<Product>ListProducts(){
+        return productRepository.findAll();
+    }
+
 }
