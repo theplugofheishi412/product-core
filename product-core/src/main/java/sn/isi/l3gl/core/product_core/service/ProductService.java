@@ -52,4 +52,13 @@ public class ProductService {
         return  productRepository.save(product);
     }
 
+
+    /**
+     * Compte le nombre de produits ayant un stock faible.
+     * Un produit est considéré en stock faible si sa quantité est inférieure ou égale à 5.
+     * @return le nombre de produits en stock faible
+     */
+    public long countLowStockProducts() {
+        return productRepository.countByQuantityLessThanEqual(5);
+    }
 }
